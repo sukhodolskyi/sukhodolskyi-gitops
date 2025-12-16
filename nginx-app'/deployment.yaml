@@ -1,0 +1,21 @@
+YAML
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sukhodolskyi-gitops
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: sukhodolskyi-app
+  template:
+    metadata:
+      labels:
+        app: sukhodolskyi-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
